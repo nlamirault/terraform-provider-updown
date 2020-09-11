@@ -1,15 +1,16 @@
 package updown
 
 import (
+	"github.com/antoineaugusti/updown"
 	"github.com/hashicorp/terraform/helper/schema"
 	"github.com/hashicorp/terraform/terraform"
-	"github.com/antoineaugusti/updown"
 )
 
+// Provider returns a Terraform provider resource
 func Provider() terraform.ResourceProvider {
 	return &schema.Provider{
 		Schema: map[string]*schema.Schema{
-			"api_key": &schema.Schema{
+			"api_key": {
 				Type:        schema.TypeString,
 				Required:    true,
 				DefaultFunc: schema.EnvDefaultFunc("UPDOWN_API_KEY", ""),
